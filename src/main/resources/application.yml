@@ -5,6 +5,9 @@ spring:
   application:
     name: Book Service
 
+  config:
+    import: optional:file:.env[.properties]
+
   datasource:
     url: ${BOOK_DB_URL}
     username: ${BOOK_DB_USERNAME}
