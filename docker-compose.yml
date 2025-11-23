@@ -1,7 +1,7 @@
 services:
   postgres:
     image: postgres:18
-    container_name: book_database_postgres
+    container_name: book-database-postgres
     environment:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: postgres
@@ -15,10 +15,12 @@ services:
       retries: 5
       start_period: 10s
     restart: unless-stopped
+    networks:
+      - library-network
 
   javalibrary:
     build: .
-    container_name: book_service
+    container_name: book-service
     ports:
       - "8090:8090"
     depends_on:
@@ -31,3 +33,10 @@ services:
       BOOK_DB_USERNAME: postgres
       BOOK_DB_PASSWORD: postgres
     restart: no
+    networks:
+      - library-network
+
+networks:
+  library-network:
+    external: true
+    name: library-network
