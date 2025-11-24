@@ -24,7 +24,7 @@ services:
     ports:
       - "8090:8090"
     depends_on:
-      postgres:
+      book-postgres:
         condition: service_healthy
     environment:
       BOOK_DB_URL: jdbc:postgresql://postgres:5432/books
