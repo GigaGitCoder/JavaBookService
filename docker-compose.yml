@@ -27,7 +27,7 @@ services:
       book-postgres:
         condition: service_healthy
     environment:
-      BOOK_DB_URL: jdbc:postgresql://postgres:5432/books
+      BOOK_DB_URL: jdbc:postgresql://book-postgres:5432/books
       BOOK_DB_USERNAME: postgres
       BOOK_DB_PASSWORD: postgres
     restart: unless-stopped
