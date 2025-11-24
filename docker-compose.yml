@@ -1,5 +1,5 @@
 services:
-  postgres:
+  book-postgres:
     image: postgres:18
     container_name: book-database-postgres
     environment:
@@ -18,7 +18,7 @@ services:
     networks:
       - library-network
 
-  javalibrary:
+  book-service:
     build: .
     container_name: book-service
     ports:
