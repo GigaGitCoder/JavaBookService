@@ -30,7 +30,7 @@ services:
       BOOK_DB_URL: jdbc:postgresql://postgres:5432/books
       BOOK_DB_USERNAME: postgres
       BOOK_DB_PASSWORD: postgres
-    restart: no
+    restart: unless-stopped
     networks:
       - library-network
 
